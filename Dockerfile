@@ -7,14 +7,14 @@ RUN rpm -ivh jdk.rpm && rm jdk.rpm
 ADD downloader.jar /downloader.jar
 ADD sources.txt /sources.txt
 RUN printf "username=$USER\npassword=$PASS\n" >>/sources.txt
-RUN mkdir -p /opt/oracle/domain 
+RUN mkdir -p /opt/oracle/ 
 RUN useradd oracle
 RUN chown -R oracle /opt/oracle
 RUN java -jar /downloader.jar sources.txt=weblogic.zip
 RUN unzip weblogic.zip
 USER oracle
 RUN java -jar fmw_12.2.1.2.0_wls_quick.jar ORACLE_HOME=/opt/oracle
-
+RUN mkdir -p /opt/oracle/domain
 ADD entrypoint.sh /entrypoint.sh
 
 VOLUME ["/opt/oracle"]
