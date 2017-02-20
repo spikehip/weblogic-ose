@@ -14,8 +14,8 @@ ADD entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
 
 RUN mkdir /tmp/install
-ADD downloader.jar /tmp/install/downloader.jar
-ADD sources.txt /tmp/install/sources.txt
+#ADD downloader.jar /tmp/install/downloader.jar
+#ADD sources.txt /tmp/install/sources.txt
 RUN chown -R oracle /tmp/install
 
 USER oracle
