@@ -36,7 +36,7 @@ WORKDIR /opt/oracle
 RUN rm -rf /tmp/install
 RUN mkdir -p /opt/oracle/domain
 
-VOLUME ["/opt/oracle"]
+#VOLUME ["/opt/oracle"]
 EXPOSE 7001
 
 CMD ["/entrypoint.sh"]
